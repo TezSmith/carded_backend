@@ -1,0 +1,2 @@
+class BizcardsController < ApplicationController
+end
