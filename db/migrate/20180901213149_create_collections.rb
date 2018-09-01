@@ -1,7 +1,7 @@
 class CreateCollections < ActiveRecord::Migration[5.2]
   def change
     create_table :collections do |t|
-      t.string :group_name
+      t.string :collection_name
       t.references :user, foreign_key: true
 
       t.timestamps

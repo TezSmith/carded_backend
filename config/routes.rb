@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
-  resources :users do
-    resources :collections do
-      resources :bizcards
-    end
-  end
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-end
+  resources :collections
+  namespace :api do
+    namespace :v1 do
+      resources :users, shallow: true do
+        resources :collections, shallow: true do
+          resources :bizcards
+        end
+      end #ends users
+    end #ends :v1
+  end #ends :api
+
+end #ends Rails.application

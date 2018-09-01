@@ -2,10 +2,18 @@
 
 one:
   card_name: MyString
-  details: MyText
-  user: one
+  line1: MyText
+  line2: MyText
+  line3: MyText
+  line4: MyText
+  line5: MyText
+  collection: one
 
 two:
   card_name: MyString
-  details: MyText
-  user: two
+  line1: MyText
+  line2: MyText
+  line3: MyText
+  line4: MyText
+  line5: MyText
+  collection: two
