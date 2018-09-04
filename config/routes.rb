@@ -2,8 +2,8 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-       post 'login', to: 'users#login'
-       post 'signup', to: 'users#create'
+       post '/login', to: 'users#login'
+       post '/signup', to: 'users#create'
         resources :collections
         resources :bizcards
 

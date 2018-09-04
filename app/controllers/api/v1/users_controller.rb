@@ -8,8 +8,12 @@ module Api
 			end
 
       def create
-       @user = User.create(name: params[:name], username: params[:username])
-       render json: @user
+				# signup
+       @user = User.find_or_create_by(username: params[:username])
+			 @user.name = params[:name]
+			 if @user.save
+	       render json: @user
+			 end
       end
 
       def login
