@@ -2,11 +2,11 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :users, shallow: true do
-        resources :collections, shallow: true do
-          resources :bizcards
-        end
-      end #ends users
+
+      resources :users
+        resources :collections
+        resources :bizcards
+
     end #ends :v1
   end #ends :api
 
