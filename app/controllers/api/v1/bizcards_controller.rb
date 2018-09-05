@@ -8,7 +8,7 @@ module Api
 			end
 
       def create
-				collection = Collection.create(collection_name: params[:collection_name], user_id: params["user"]["id"])
+				collection = Collection.find_or_create_by(collection_name: params[:collection_name], user_id: params["user"]["id"])
 				@bizcard = Bizcard.new(bizcard_params)
 				@bizcard.collection = collection
 				@bizcard.save
