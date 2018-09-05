@@ -26,6 +26,10 @@ module Api
 		   render json: @user
 		  end
 
+			def bizcards
+
+			end
+
     end
   end
 end

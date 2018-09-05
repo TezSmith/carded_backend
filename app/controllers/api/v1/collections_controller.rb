@@ -4,7 +4,7 @@ module Api
 
       def index
        @collections = Collection.all
-			 render json: @collections
+			 render json: @collections, include: [:bizcards] 
 			end
 
 			# def create
@@ -18,6 +18,7 @@ module Api
 
 			def show
         @collection = Collection.find_by(collection_name: params[:collection_name])
+				render json: @collection, include: [:bizcards]
 			end
 
 			private
