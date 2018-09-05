@@ -1,4 +1,3 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :username, :bizcards
-  has_many :collections
+  attributes :id, :username, :bizcards, :collections
 end
