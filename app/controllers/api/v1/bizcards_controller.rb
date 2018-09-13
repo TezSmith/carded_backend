@@ -21,6 +21,7 @@ module Api
 			end
 
 			def destroy
+				# find something
         @bizcard = Bizcard.find(params['id'])
 				@bizcard.destroy
 				render json: @bizcard
