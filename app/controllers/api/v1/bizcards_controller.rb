@@ -22,7 +22,6 @@ module Api
 
 			def destroy
         @bizcard = Bizcard.find(params['id'].to_i)
-				byebug
 				@bizcard.destroy
 			end
 
