@@ -1,3 +1,5 @@
+require "byebug"
+
 module Api
 	module V1
     class BizcardsController < ApplicationController
