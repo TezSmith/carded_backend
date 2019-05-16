@@ -2,29 +2,38 @@ module Api
 	module V1
     class UsersController < ApplicationController
 
+			def login
+				@user = User.find_by(username: params[:username])
+				render json: @user
+			end
+
       def index
        @users = User.all
 			 render json: @users
 			end
 
       def create
-				# signup
-       @user = User.find_or_create_by(username: params[:username])
-			 @user.name = params[:name]
-			 if @user.save
-	       render json: @user
+				#signup
+       @user = User.new(user_params)
+				 if @user.save
+		       render json: @user, status: :created
+				 else
+           render json: @user.errors
+				 end
 			 end
       end
 
-      def login
-        @user = User.find_by(username: params[:username])
-        render json: @user
-      end
 
 			def show
 		   @user = User.find_by(params[:id])
 		   render json: @user
 		  end
+
+			private
+
+			def user_params
+      	params.require(:user).permit(:name, :username)
+			end
 
     end
   end
