@@ -3,7 +3,8 @@ module Api
     class UsersController < ApplicationController
 
 			def login
-				@user = User.find_by(username: params[:username])
+				byebug
+				@user = User.find_by(username: params[:user][:username])
 				render json: @user
 			end
 
@@ -20,7 +21,6 @@ module Api
 				 else
            render json: @user.errors
 				 end
-			 end
       end
 
 
@@ -32,7 +32,7 @@ module Api
 			private
 
 			def user_params
-      	params.require(:user).permit(:name, :username)
+      	params.require(:user).permit(:name, :username, :password)
 			end
 
     end
