@@ -19,7 +19,7 @@ module Api
 				 if @user.save
 		       render json: @user, status: :created
 				 else
-           render json: @user.errors
+           render json: @user.errors.full_messages, status: :not_found
 				 end
       end
 
