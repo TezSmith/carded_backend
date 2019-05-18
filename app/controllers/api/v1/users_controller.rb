@@ -2,22 +2,16 @@ module Api
 	module V1
     class UsersController < ApplicationController
 
-			def login
-				byebug
-				@user = User.find_by(username: params[:user][:username])
-				render json: @user
-			end
-
       def index
        @users = User.all
 			 render json: @users
 			end
 
-      def create
-				#signup
-       @user = User.new(user_params)
+			def create
+			  @user = User.new(user_params)
 				 if @user.save
-		       render json: @user, status: :created
+					 token = JsonWebToken.encode({ user_id: @user.id })
+		       render json: { jwt: token, username: @user.username, bizcards: @user.bizcards, collections: @user.collections }, status: :created
 				 else
            render json: @user.errors.full_messages, status: :not_found
 				 end

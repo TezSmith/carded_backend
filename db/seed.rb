@@ -9,5 +9,5 @@
 #Users
 User.destroy_all
 
-tez = User.create(name: "Montez", username: "Tez")
-kat = User.create(name: "Katrina", username: "Kat")
+tez = User.create(name: "Montez", username: "Tez", password: "cookies")
+kat = User.create(name: "Katrina", username: "Kat", password: "cookies")
