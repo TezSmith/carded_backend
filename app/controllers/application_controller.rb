@@ -5,7 +5,7 @@ class ApplicationController < ActionController::API
       token = request.headers['Access-Token']
       return nil unless token.present?
       payload = JsonWebToken.decode(token)
-      User.find(payload['user_id'])
+      @current_user = User.find(payload.first["user_id"])
     end
 
     def authorize!

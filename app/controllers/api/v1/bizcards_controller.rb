@@ -1,8 +1,7 @@
-require "byebug"
-
 module Api
 	module V1
-    class BizcardsController < ApplicationController
+		class BizcardsController < ApplicationController
+			before_action :authorize!, only: [:create]
 
 			def index
        @bizcards = Bizcard.all
@@ -10,9 +9,16 @@ module Api
 			end
 
       def create
-				collection = Collection.find_or_create_by(collection_name: params[:collection_name], user_id: params["user"]["id"])
-				@bizcard = Bizcard.new(bizcard_params)
+				byebug
+				collection = Collection.find_or_create_by(collection_name: params[:bizcard][:collection_name], user_id: @current_user.id)
+				@bizcard = Bizcard.new
 				@bizcard.collection = collection
+				@bizcard.card_name = params[:bizcard][:card_name]
+				@bizcard.line1 = params[:bizcard][:line1]
+				@bizcard.line2 = params[:bizcard][:line2]
+				@bizcard.line3 = params[:bizcard][:line3]
+				@bizcard.line4 = params[:bizcard][:line4]
+				@bizcard.line5 = params[:bizcard][:line5]
 				@bizcard.save
 				render json: @bizcard
 			end
@@ -23,11 +29,9 @@ module Api
 			end
 
 			def destroy
-				# find something
-				# another test
         @bizcard = Bizcard.find(params['id'])
 				@bizcard.destroy
-				render json: @bizcard
+				render json: { success: 'Your card has been deleted'}, status: :ok
 			end
 
 			private
