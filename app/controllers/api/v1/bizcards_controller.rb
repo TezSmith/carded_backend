@@ -9,7 +9,6 @@ module Api
 			end
 
       def create
-				byebug
 				collection = Collection.find_or_create_by(collection_name: params[:bizcard][:collection_name], user_id: @current_user.id)
 				@bizcard = Bizcard.new
 				@bizcard.collection = collection
@@ -31,7 +30,7 @@ module Api
 			def destroy
         @bizcard = Bizcard.find(params['id'])
 				@bizcard.destroy
-				render json: { success: 'Your card has been deleted'}, status: :ok
+				render json: { success: 'Your card has been deleted', card: @bizcard}, status: :ok
 			end
 
 			private
