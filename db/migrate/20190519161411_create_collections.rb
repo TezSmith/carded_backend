@@ -2,8 +2,8 @@ class CreateCollections < ActiveRecord::Migration[5.2]
   def change
     create_table :collections do |t|
       t.string :collection_name
-      t.references :user, foreign_key: true
-      t.references :bizcard, foreign_key: true
+      t.integer :user_id
+      t.integer :bizcard_id
 
       t.timestamps
     end
