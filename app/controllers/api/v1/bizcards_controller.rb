@@ -19,7 +19,7 @@ module Api
 				@bizcard.line4 = params[:bizcard][:line4]
 				@bizcard.line5 = params[:bizcard][:line5]
 				@bizcard.save
-				render json: @bizcard
+				render json: { card: @bizcard }, status: :created
 			end
 
 			def show
