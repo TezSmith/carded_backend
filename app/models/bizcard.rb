@@ -1,3 +1,4 @@
 class Bizcard < ApplicationRecord
-  belongs_to :collection
+  has_many :collections
+  has_many :bizcards, through: :collections
 end

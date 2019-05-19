@@ -10,40 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_16_181333) do
+ActiveRecord::Schema.define(version: 2019_05_19_161411) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bizcards", force: :cascade do |t|
     t.string "card_name"
-    t.text "line1"
-    t.text "line2"
-    t.text "line3"
-    t.text "line4"
-    t.text "line5"
-    t.bigint "collection_id"
+    t.string "line1"
+    t.string "line2"
+    t.string "line3"
+    t.string "line4"
+    t.string "line5"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["collection_id"], name: "index_bizcards_on_collection_id"
   end
 
   create_table "collections", force: :cascade do |t|
     t.string "collection_name"
     t.bigint "user_id"
+    t.bigint "bizcard_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["bizcard_id"], name: "index_collections_on_bizcard_id"
     t.index ["user_id"], name: "index_collections_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "username"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "password_digest"
   end
 
-  add_foreign_key "bizcards", "collections"
+  add_foreign_key "collections", "bizcards"
   add_foreign_key "collections", "users"
 end

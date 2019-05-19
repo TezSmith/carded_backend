@@ -3,7 +3,9 @@
 one:
   collection_name: MyString
   user: one
+  bizcard: one
 
 two:
   collection_name: MyString
   user: two
+  bizcard: two

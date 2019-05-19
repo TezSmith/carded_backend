@@ -2,18 +2,16 @@
 
 one:
   card_name: MyString
-  line1: MyText
-  line2: MyText
-  line3: MyText
-  line4: MyText
-  line5: MyText
-  collection: one
+  line1: MyString
+  line2: MyString
+  line3: MyString
+  line4: MyString
+  line5: MyString
 
 two:
   card_name: MyString
-  line1: MyText
-  line2: MyText
-  line3: MyText
-  line4: MyText
-  line5: MyText
-  collection: two
+  line1: MyString
+  line2: MyString
+  line3: MyString
+  line4: MyString
+  line5: MyString

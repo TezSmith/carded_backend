@@ -1,4 +1,5 @@
 class Collection < ApplicationRecord
   belongs_to :user
-  has_many :bizcards
+  belongs_to :bizcard
+  # has_many :bizcards
 end

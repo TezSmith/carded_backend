@@ -3,6 +3,7 @@ class CreateCollections < ActiveRecord::Migration[5.2]
     create_table :collections do |t|
       t.string :collection_name
       t.references :user, foreign_key: true
+      t.references :bizcard, foreign_key: true
 
       t.timestamps
     end
