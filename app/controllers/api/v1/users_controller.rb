@@ -1,5 +1,4 @@
-include JsonWebToken
-
+require 'json_web_token'
 
 module Api
 	module V1
