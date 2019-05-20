@@ -4,6 +4,9 @@ Rails.application.configure do
   # Code is not reloaded between requests.
   config.cache_classes = true
 
+  config.autoload_paths << Rails.root.join('lib')
+
+
   # config.public_file_server.headers = {
   #   'Access-Control-Allow-Origin' => '*',  # only for debugging
   #   # 'Access-Control-Allow-Origin' => 'https://carded-v3.firebaseapp.com',
