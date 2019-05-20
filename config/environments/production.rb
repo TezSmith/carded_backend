@@ -4,11 +4,11 @@ Rails.application.configure do
   # Code is not reloaded between requests.
   config.cache_classes = true
 
-   config.public_file_server.headers = {
-    'Access-Control-Allow-Origin' => '*',  # only for debugging
-    # 'Access-Control-Allow-Origin' => 'https://carded-v3.firebaseapp.com',
-    'Access-Control-Request-Method' => %w{GET OPTIONS}.join(",")
-  }
+  # config.public_file_server.headers = {
+  #   'Access-Control-Allow-Origin' => '*',  # only for debugging
+  #   # 'Access-Control-Allow-Origin' => 'https://carded-v3.firebaseapp.com',
+  #   'Access-Control-Request-Method' => %w{GET OPTIONS}.join(",")
+  # }
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
