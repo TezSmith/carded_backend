@@ -1,4 +1,4 @@
-# require('lib/json_web_token.rb')
+require('lib/json_web_token.rb')
 
 module Api
 	module V1
