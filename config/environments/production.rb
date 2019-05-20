@@ -5,8 +5,8 @@ Rails.application.configure do
   config.cache_classes = true
 
    config.public_file_server.headers = {
-    # 'Access-Control-Allow-Origin' => '*',  # only for debugging
-    'Access-Control-Allow-Origin' => 'https://carded-v3.firebaseapp.com',
+    'Access-Control-Allow-Origin' => '*',  # only for debugging
+    # 'Access-Control-Allow-Origin' => 'https://carded-v3.firebaseapp.com',
     'Access-Control-Request-Method' => %w{GET OPTIONS}.join(",")
   }
 
