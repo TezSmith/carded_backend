@@ -1,4 +1,4 @@
-require 'json_web_token'
+require('lib/json_web_token.rb')
 
 module Api
 	module V1
@@ -12,8 +12,8 @@ module Api
 			def create
 			  @user = User.new(user_params)
 				 if @user.save
-					 # token = JsonWebToken.encode({ user_id: @user.id })
-		       render json: { username: @user.username, bizcards: @user.bizcards, collections: @user.collections }, status: :created
+					 token = JsonWebToken.encode({ user_id: @user.id })
+		       render json: { jwt: token, username: @user.username, bizcards: @user.bizcards, collections: @user.collections }, status: :created
 				 else
            render json: { error: @user.errors.full_messages }, status: :not_found
 				 end
