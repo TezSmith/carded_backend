@@ -19,8 +19,8 @@ module Api
 				if @bizcard.save
 			  	collection = Collection.find_or_create_by(collection_name: params[:bizcard][:collection_name], user_id: @current_user.id, bizcard_id: @bizcard.id)
 					 render json: { card: @bizcard }, status: :created
-				else 
-					render json: { error: @bizcard.errors.full_messages }, status: :unproccessed
+				else
+					render json: { message: @bizcard.errors.full_messages }, status: :unproccessed
 				end
 			end
 
@@ -30,10 +30,9 @@ module Api
 			end
 
 			def destroy
-				byebug
         @bizcard = Bizcard.find(params['id'])
 				@bizcard.destroy
-				render json: { success: 'Your card has been deleted', card: @bizcard}, status: :ok
+				render json: { message: 'Your card has been deleted', card: @bizcard}, status: :ok
 			end
 
 			private
