@@ -4,7 +4,7 @@ module Api
 			before_action :authorize!, only: [:create]
 
 			def index
-       @bizcards = Bizcard.all
+    		 @bizcards = Bizcard.all
 			 render json: @bizcards
 			end
 
@@ -25,12 +25,12 @@ module Api
 			end
 
 			def show
-        @bizcard = Bizcard.find(params[:id])
+        		@bizcard = Bizcard.find(params[:id])
 				render json: @bizcard
 			end
 
 			def destroy
-        @bizcard = Bizcard.find(params['id'])
+        		@bizcard = Bizcard.find(params['id'])
 				@bizcard.destroy
 				render json: { message: 'Your card has been deleted', card: @bizcard}, status: :ok
 			end
@@ -38,7 +38,7 @@ module Api
 			private
 
 			def bizcard_params
-      	params.require(:bizcard).permit(:card_name, :line1, :line2, :line3, :line4, :line5, :collection_name)
+      			params.require(:bizcard).permit(:card_name, :line1, :line2, :line3, :line4, :line5, :collection_name)
 			end
 
 
