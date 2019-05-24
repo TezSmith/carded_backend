@@ -6,15 +6,13 @@ class ApplicationController < ActionController::API
       return nil unless token.present?
       payload = JsonWebToken.decode(token)
       @current_user = User.find(payload.first["user_id"])
-    end
+  end
 
-    def authorize!
+  def authorize!
     ## render back an error if there is no one logged in
     unless current_user
       render json: { error: 'You must be logged in.' }, status: :unauthorized
     end
   end
-
-   
 
 end
