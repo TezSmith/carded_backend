@@ -5,7 +5,7 @@ class AuthenticationController < ApplicationController
        token = JsonWebToken.encode({ user_id: @user.id })
        render json: { jwt: token, username: @user.username, bizcards: @user.bizcards, collections: @user.collections }, status: :ok
     else
-      render json: { message: 'Login Unsuccessful'}, status: :unauthorized
+      render json: { message: "Username / Password combination is incorrect." }, status: :unauthorized
     end
  end
 

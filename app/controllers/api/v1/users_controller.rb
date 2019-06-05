@@ -13,7 +13,7 @@ module Api
 					 token = JsonWebToken.encode({ user_id: @user.id })
 		       render json: { jwt: token, username: @user.username, bizcards: @user.bizcards, collections: @user.collections }, status: :created
 				 else
-           render json: { message: @user.errors.full_messages }, status: :not_found
+           render json: { message: "#{@user.errors.full_messages[0]}." }, status: :not_found
 				 end
       end
 
