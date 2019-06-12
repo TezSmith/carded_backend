@@ -1,7 +1,7 @@
 module Api
 	module V1
 		class BizcardsController < ApplicationController
-			before_action :authorize!, only: [:create]
+			before_action :authorize!, only: [:create, :update]
 
 			def index
     		 @bizcards = Bizcard.all
@@ -23,6 +23,17 @@ module Api
 					render json: { message: @bizcard.errors.full_messages }, status: :unproccessed
 				end
 			end
+
+
+			def update 
+				byebug
+				@bizcard = Bizcard.find(params[:id])
+				if @bizcard.update(bizcard_params)
+					render json: { card: @bizcard }, status: :created
+				else  
+					render json: { message: @bizcard.errors.full_messages }, status: :unproccessed
+				end 
+		    end
 
 			def show
         		@bizcard = Bizcard.find(params[:id])
