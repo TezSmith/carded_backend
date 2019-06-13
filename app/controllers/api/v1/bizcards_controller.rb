@@ -26,22 +26,21 @@ module Api
 
 
 			def update 
-				byebug
 				@bizcard = Bizcard.find(params[:id])
 				if @bizcard.update(bizcard_params)
 					render json: { card: @bizcard }, status: :created
 				else  
 					render json: { message: @bizcard.errors.full_messages }, status: :unproccessed
 				end 
-		    end
+			end
 
 			def show
-        		@bizcard = Bizcard.find(params[:id])
+				@bizcard = Bizcard.find(params[:id])
 				render json: @bizcard
 			end
 
 			def destroy
-        		@bizcard = Bizcard.find(params['id'])
+				@bizcard = Bizcard.find(params['id'])
 				@bizcard.destroy
 				render json: { message: 'Your card has been deleted', card: @bizcard}, status: :ok
 			end
@@ -49,7 +48,7 @@ module Api
 			private
 
 			def bizcard_params
-      			params.require(:bizcard).permit(:card_name, :line1, :line2, :line3, :line4, :line5, :collection_name)
+					params.require(:bizcard).permit(:card_name, :line1, :line2, :line3, :line4, :line5, :collection_name)
 			end
 
 
